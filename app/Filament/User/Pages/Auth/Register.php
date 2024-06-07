@@ -14,9 +14,6 @@ class Register extends RegisterPage
         return $form
             ->schema([
                 $this->getNameFormComponent(),
-                TextInput::make('surname')
-                    ->required()
-                    ->maxLength(255),
                 $this->getEmailFormComponent(),
                 TextInput::make('username')
                     ->required()
