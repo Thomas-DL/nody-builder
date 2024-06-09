@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,8 +18,9 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'username' => 'thomasdelage',
             'name' => 'Thomas',
-            'surname' => 'Delage',
             'email' => 'contact@thomasdelage.com',
         ]);
+
+        Product::factory()->count(3)->create();
     }
 }
