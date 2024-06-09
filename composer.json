@@ -12,10 +12,10 @@
         "laravel/socialite": "^5.14",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
-        "owenvoke/blade-fontawesome": "^2.6"
+        "owenvoke/blade-fontawesome": "^2.6",
+        "fakerphp/faker": "^1.23"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
