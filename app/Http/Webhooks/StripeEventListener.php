@@ -9,8 +9,8 @@ class StripeEventListener
 
   public function handle(WebhookReceived $event): void
   {
-    dd($event);
-    if ($event->payload['type'] === 'checkout.session.completed') {
+    if ($event->payload['type'] === 'invoice.payment_succeeded') {
+      dd($event);
     }
   }
 }
