@@ -3,6 +3,7 @@
 namespace App\Http\Webhooks;
 
 use Laravel\Cashier\Events\WebhookReceived;
+use Illuminate\Support\Facades\Log;
 
 class StripeEventListener
 {
@@ -10,7 +11,7 @@ class StripeEventListener
   public function handle(WebhookReceived $event): void
   {
     if ($event->payload['type'] === 'invoice.payment_succeeded') {
-      dd($event);
+      Log::info($event->payload['data']);
     }
   }
 }
