@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
@@ -30,38 +31,48 @@ class ProductResource extends Resource
             ->schema([
                 Tabs::make('Tabs')
                     ->tabs([
-                        Tabs\Tab::make('Stripe')
+                        Tab::make('Stripe')
                             ->schema([
                                 TextInput::make('stripe_id')
+                                    ->placeholder('price_1PSfR2Rt929MsGc0mgoFnZoY')
                                     ->required(),
                             ]),
-                        Tabs\Tab::make('Name')
+                        Tab::make('Name')
+                            ->label('Nom')
                             ->schema([
                                 TextInput::make('name')
-                                    ->required()
-                                    ->placeholder('Enter the product name'),
+                                    ->label('Nom')
+                                    ->placeholder('Entrer le nom du produit')
+                                    ->required(),
                             ]),
-                        Tabs\Tab::make('Type')
+                        Tab::make('Type')
+                            ->label('Type')
                             ->schema([
                                 Select::make('type')
+                                    ->label('Type')
                                     ->options([
-                                        'one-time' => 'One Time Purchase',
-                                        'subscription' => 'Subscription',
+                                        'one-time' => 'Ponctuel',
+                                        'monthly' => 'Mensuel',
+                                        'yearly' => 'Annuel',
                                     ])
                                     ->native(false)
+                                    ->required(),
                             ]),
-                        Tabs\Tab::make('Price')
+                        Tab::make('Price')
+                            ->label('Prix')
                             ->schema([
                                 TextInput::make('price')
-                                    ->required()
-                                    ->placeholder('Enter the product price'),
+                                    ->label('Prix')
+                                    ->placeholder('Entrer le prix du produit')
+                                    ->required(),
                             ]),
                     ])->columnSpan(2),
-                Section::make('Details')
+                Section::make('Description')
                     ->schema([
                         Textarea::make('description')
+                            ->label('Description')
                             ->rows(3)
-                            ->placeholder('Enter the product description'),
+                            ->placeholder('Entrer la description du produit'),
                     ])
             ]);
     }
@@ -70,9 +81,12 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
-                TextColumn::make('type'),
-                TextColumn::make('price'),
+                TextColumn::make('name')
+                    ->label('Nom'),
+                TextColumn::make('type')
+                    ->label('Type'),
+                TextColumn::make('price')
+                    ->label('Prix'),
             ])
             ->filters([
                 //

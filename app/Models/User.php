@@ -30,6 +30,29 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         return $this->role === 'admin';
     }
 
+    public function lifeTimeSubscribed(): bool
+    {
+        return $this->lifetime_access;
+    }
+
+    public function monthlySubscribed(): bool
+    {
+        if ($this->subscription('Nody Builder')->stripe_price === Product::where('type', 'monthly')->first()->stripe_id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function yearlySubscribed(): bool
+    {
+        if ($this->subscription('Nody Builder')->stripe_price === Product::where('type', 'yearly')->first()->stripe_id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -37,6 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
      */
     protected $fillable = [
         'role',
+        'lifetime_access',
         'username',
         'name',
         'email',

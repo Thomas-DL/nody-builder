@@ -56,6 +56,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Email
+    |--------------------------------------------------------------------------
+    |
+    | This email is used by the console to properly generate emails when using
+    | the Artisan command line tool. You should set this to the email of
+    | the application so that it's available within Artisan commands.
+    |
+    */
+
+    'email' => env('APP_EMAIL'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

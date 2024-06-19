@@ -1,12 +1,15 @@
 <x-filament-panels::page>
-    <a href="{{ route('checkout', ['id' => $productID['monthly']]) }}"
-        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Button
-        text</a>
-    <a href="{{ route('checkout', ['id' => $productID['yearly']]) }}"
-        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Button
-        text</a>
-    <a href="{{ route('checkout', ['id' => $productID['one-time']]) }}"
-        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Button
-        text</a>
-
+    @if (config('cashier.recurring_enabled'))
+        @if (auth()->user()->subscription('Nody Builder'))
+            <x-filament.reccuring-subscription />
+        @else
+            <x-filament.reccuring-plan :data="$productID" />
+        @endif
+    @else
+        @if (auth()->user()->lifeTimeSubscribed())
+            <x-filament.lifetime-subscription />
+        @else
+            <x-filament.lifetime-plan :data="$productID" />
+        @endif
+    @endif
 </x-filament-panels::page>

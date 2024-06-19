@@ -10,16 +10,15 @@ use Filament\Navigation\MenuItem;
 use Filament\Support\Colors\Color;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use App\Filament\User\Pages\Subscription;
 use App\Filament\User\Pages\Auth\Register;
 use Filament\Http\Middleware\Authenticate;
-use Filament\Support\Facades\FilamentView;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -39,6 +38,10 @@ class UserPanelProvider extends PanelProvider
             ->profile()
             ->colors([
                 'primary' => Color::Indigo,
+            ])
+            ->viteTheme([
+                'resources/css/filament/user/theme.css',
+                'resources/js/app.js',
             ])
             ->discoverResources(in: app_path('Filament/User/Resources'), for: 'App\\Filament\\User\\Resources')
             ->discoverPages(in: app_path('Filament/User/Pages'), for: 'App\\Filament\\User\\Pages')

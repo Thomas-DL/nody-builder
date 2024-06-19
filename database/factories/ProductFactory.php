@@ -20,7 +20,7 @@ class ProductFactory extends Factory
             'stripe_id' => $this->faker->unique()->uuid,
             'name' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'type' => $this->faker->randomElement(['subscription', 'one-time']),
+            'type' => $this->faker->randomElement(['monthly', 'yearly', 'one-time']),
             'price' => $this->faker->randomFloat(2, 1, 1000),
         ];
     }

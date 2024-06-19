@@ -3,12 +3,16 @@
 namespace App\Providers;
 
 use Laravel\Cashier\Cashier;
+use App\Traits\PaymentTypeHandler;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
-use App\Http\Webhooks\StripeEventListener;
+use App\Http\Webhooks\HandleOneTimePayment;
+use Laravel\Cashier\Events\WebhookReceived;
+use App\Http\Webhooks\HandleSubscriptionPayment;
 
 class AppServiceProvider extends ServiceProvider
 {
+    use PaymentTypeHandler;
     /**
      * Register any application services.
      */
@@ -24,7 +28,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Cashier::calculateTaxes();
         Event::listen(
-            StripeEventListener::class,
+            WebhookReceived::class,
+            $this->isRecurringPaymentConfigured()
+                ? [HandleSubscriptionPayment::class, 'handle']
+                : [HandleOneTimePayment::class, 'handle'],
         );
     }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\Stripe\CancelStripeController;
+use App\Http\Controllers\Stripe\ResumeStripeController;
 use App\Http\Controllers\Stripe\CheckoutStripeController;
 
 /**
@@ -22,5 +24,7 @@ Route::middleware(['auth', 'verified'])
     Route::prefix('subscribe')
       ->group(function () {
         Route::get('checkout/{id?}', CheckoutStripeController::class)->name('checkout');
+        Route::delete('cancel', CancelStripeController::class)->name('cancel');
+        Route::post('resume', ResumeStripeController::class)->name('resume');
       });
   });

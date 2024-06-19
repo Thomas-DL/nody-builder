@@ -133,4 +133,6 @@ return [
 
     'product' => env('STRIPE_PRODUCT'),
 
+    'recurring_enabled' => true,
+
 ];

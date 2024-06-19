@@ -31,6 +31,7 @@ class SocialiteController extends Controller
                 'password' => bcrypt($githubUser->token),
                 'github_token' => $githubUser->token,
                 'github_refresh_token' => $githubUser->refreshToken,
+                'lifetime_access' => 0,
             ]);
             Auth::login($user);
             return redirect()->route('filament.user.pages.dashboard');

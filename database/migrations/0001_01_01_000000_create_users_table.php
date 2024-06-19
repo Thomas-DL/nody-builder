@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('github_token')->nullable();
             $table->string('github_refresh_token')->nullable();
 
+            $table->boolean('lifetime_access')->default(false);
+
             $table->rememberToken();
             $table->timestamps();
         });
