@@ -2,6 +2,11 @@ import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    build: {
+        rollupOptions: {
+            external: ['preline']
+            }
+        },
     plugins: [
         laravel({
             input: [
