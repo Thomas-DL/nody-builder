@@ -28,6 +28,7 @@ class SubscriptionResume extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            from: env('MAIL_FROM_ADDRESS', 'hello@exemple.com'),
             subject: 'Abonnement réactivé',
         );
     }
