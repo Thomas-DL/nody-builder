@@ -4,7 +4,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     './vendor/filament/**/*.blade.php',
-    'node_modules/preline/dist/*.js',
+    './node_modules/preline/dist/*.js',
   ],
   darkMode: 'class',
   theme: {
