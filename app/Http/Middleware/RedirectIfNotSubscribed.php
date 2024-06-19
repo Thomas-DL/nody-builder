@@ -16,7 +16,7 @@ class RedirectIfNotSubscribed
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (!$request->user()?->subscribed()) {
+        if (!$request->user()?->subscribed() && !$request->user()?->lifeTimeSubscribed()) {
             return redirect()->route('filament.user.pages.dashboard');
         }
 

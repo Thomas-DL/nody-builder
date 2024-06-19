@@ -16,10 +16,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->validateCsrfTokens(except: [
             'stripe/*',
         ]);
-        $middleware->append([
-            // RedirectIfSubscribed::class,
-            // RedirectIfNotSubscribed::class,
-        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
