@@ -9,7 +9,7 @@ use App\Http\Controllers\Stripe\CheckoutStripeController;
 
 /**
  * Laravel Socialite
- * @see https://laravel.com/docs/8.x/socialite
+ * @see https://laravel.com/docs/11.x/socialite
  * Redirect the user to the GitHub authentication page.
  */
 
@@ -18,6 +18,12 @@ Route::get('/auth/redirect', function () {
 })->name('socialite.redirect');
 
 Route::get('/auth/callback', SocialiteController::class);
+
+/**
+ * Stripe & Cashier
+ * @see https://laravel.com/docs/11.x/billing
+ * Redirect the user to the Stripe checkout page.
+ */
 
 Route::middleware(['auth', 'verified'])
   ->group(function () {

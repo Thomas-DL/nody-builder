@@ -19,7 +19,6 @@ class HandleSubscriptionPayment
   public function handle(WebhookReceived $event): void
   {
     if ($event->payload['type'] === 'invoice.payment_succeeded') {
-      Log::info([User::all(), $event->payload['data']['object']]);
       $this->processInvoicePaymentSucceeded($event->payload['data']['object']);
     }
   }
