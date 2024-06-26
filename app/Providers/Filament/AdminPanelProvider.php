@@ -31,7 +31,12 @@ class AdminPanelProvider extends PanelProvider
             ->emailVerification()
             ->profile()
             ->colors([
+                'danger' => Color::Rose,
+                'gray' => Color::Gray,
+                'info' => Color::Blue,
                 'primary' => Color::Indigo,
+                'success' => Color::Emerald,
+                'warning' => Color::Orange,
             ])
             ->viteTheme([
                 'resources/css/filament/user/theme.css',

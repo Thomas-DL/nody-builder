@@ -10,6 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
+use Filament\Support\Enums\FontWeight;
 use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
@@ -82,9 +83,11 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Nom'),
+                    ->label('Nom')
+                    ->weight(FontWeight::Bold),
                 TextColumn::make('type')
-                    ->label('Type'),
+                    ->label('Type')
+                    ->badge(),
                 TextColumn::make('price')
                     ->label('Prix'),
             ])

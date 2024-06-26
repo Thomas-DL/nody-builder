@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use Laravel\Cashier\Cashier;
+use Filament\Support\Assets\Js;
 use App\Traits\PaymentTypeHandler;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use App\Http\Webhooks\HandleOneTimePayment;
+use Filament\Support\Facades\FilamentAsset;
 use Laravel\Cashier\Events\WebhookReceived;
 use App\Http\Webhooks\HandleSubscriptionPayment;
 
