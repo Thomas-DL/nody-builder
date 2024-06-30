@@ -133,7 +133,7 @@ class PageBuilderResource extends Resource
                         FileUpload::make('preview_image')
                             ->label('Image mise en avant')
                             ->disk('do')
-                            ->directory('page/preview_image')
+                            ->directory('nody/page/preview_image')
                             ->visibility('public')
                     ])->columnSpan([
                         'sm' => 3,

@@ -4,17 +4,6 @@
             src="https://laravel.com/assets/img/welcome/background.svg" />
         <div
             class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-            <form method="post" action="{{ route('upload') }}" class="max-w-sm" enctype="multipart/form-data">
-                @csrf
-                <label for="file-input" class="sr-only">Choose file</label>
-                <input type="file" name="file-input" id="file-input"
-                    class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
-        file:bg-gray-50 file:border-0
-        file:me-4
-        file:py-3 file:px-4
-        dark:file:bg-neutral-700 dark:file:text-neutral-400">
-                <button type="submit">Envoyer</button>
-            </form>
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
                     <div class="flex lg:justify-center lg:col-start-2">
