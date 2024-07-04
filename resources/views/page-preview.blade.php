@@ -5,7 +5,8 @@
 
 <x-layouts.preview>
     <div x-data="{ width: 'max-w-full' }">
-        <div class="py-6 bg-white rounded-t-xl ring-1 ring-gray-950/5 dark:ring-white/10 flex justify-center gap-4">
+        <div
+            class="relative z-50 py-6 bg-white rounded-t-xl ring-1 ring-gray-950/5 dark:ring-white/10 flex justify-center gap-4">
             <button :class="width === 'max-w-full' ? '{{ $activeButton }}' : 'text-gray-800'" class="p-2"
                 @click.prevent="width = 'max-w-full'">
                 <x-heroicon-o-computer-desktop class="w-8 h-auto dark:text-white" />

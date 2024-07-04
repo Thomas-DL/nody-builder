@@ -25,6 +25,14 @@ class Page extends Model
     ];
 
     /**
+     * Get the boolean value of the is_published attribute.
+     */
+    public function is_published(): bool
+    {
+        return $this->is_published;
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

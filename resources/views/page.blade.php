@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app :data="$page">
 
     <div class="container mx-auto">
         @foreach ($page->content as $block)

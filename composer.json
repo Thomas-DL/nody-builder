@@ -15,7 +15,8 @@
         "league/flysystem-aws-s3-v3": "^3.0",
         "livewire/livewire": "^3.5",
         "mallardduck/blade-lucide-icons": "^1.21",
-        "owenvoke/blade-fontawesome": "^2.6"
+        "owenvoke/blade-fontawesome": "^2.6",
+        "tomatophp/filament-icons": "^1.1"
     },
     "require-dev": {
         "laravel/pint": "^1.13",

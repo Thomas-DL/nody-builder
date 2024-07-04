@@ -28,7 +28,7 @@ class PageBuilderResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?array $blockList = null;
 
@@ -81,6 +81,7 @@ class PageBuilderResource extends Resource
                             ->blockPickerColumns(2)
                             ->blocks(self::getBlocks())
                             ->collapsible()
+                            ->collapsed()
                             ->minItems(1)
                             ->reorderableWithButtons()
                             ->cloneable()

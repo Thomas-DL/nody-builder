@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PageBuilderResource\Pages;
 
 use Filament\Actions\Action;
+use Illuminate\View\View;
 use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Resources\PageBuilderResource;
 
@@ -20,11 +21,21 @@ class CreatePageBuilder extends CreateRecord
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('preview')
+            Action::make('advance')
                 ->label('Prévisualiser')
                 ->icon('heroicon-o-eye')
                 ->button()
-                ->disabled(empty($this->record->content)),
+                ->outlined()
+                ->extraAttributes([
+                    'id' => '__previewAction'
+                ])
+                ->modalWidth('7xl')
+                ->modalContent(fn (): View => view(
+                    'page-preview',
+                    ['page' => $this->form->getState()],
+                ))
+                ->modalSubmitAction(false)
+                ->modalCancelAction(false),
         ];
     }
 }
