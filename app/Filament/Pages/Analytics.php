@@ -7,7 +7,7 @@ use BezhanSalleh\FilamentGoogleAnalytics\Widgets;
 
 class Analytics extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-m-chart-bar';
 
     protected static string $view = 'filament.pages.analytics';
 

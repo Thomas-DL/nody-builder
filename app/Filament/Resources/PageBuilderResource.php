@@ -8,6 +8,7 @@ use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use App\Traits\ToggleFeatures;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Forms\Components\Hidden;
@@ -20,12 +21,15 @@ use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
-use Filament\Support\Facades\FilamentAsset;
 use Filament\Forms\Components\Builder\Block;
 use App\Filament\Resources\PageBuilderResource\Pages;
 
 class PageBuilderResource extends Resource
 {
+    use ToggleFeatures;
+
+    protected static $featureFlag = 'is_page_builder_enabled';
+
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';

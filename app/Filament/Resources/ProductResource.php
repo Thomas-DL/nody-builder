@@ -16,12 +16,19 @@ use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use App\Filament\Resources\ProductResource\Pages;
+use App\Traits\ToggleFeatures;
+use Filament\Forms\Set;
 
 class ProductResource extends Resource
 {
+    use ToggleFeatures;
+
+    protected static $featureFlag = 'is_stripe_enabled';
+
     protected static ?string $model = Product::class;
 
     protected static ?string $modelLabel = 'Produit';
+
     protected static ?string $navigationLabel = 'Stripe';
 
     protected static ?string $navigationIcon = 'fab-stripe-s';
