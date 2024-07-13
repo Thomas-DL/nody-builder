@@ -25,6 +25,8 @@ class ProductResource extends Resource
 
     protected static $featureFlag = 'is_stripe_enabled';
 
+    protected static ?string $navigationGroup = 'Tools';
+
     protected static ?string $model = Product::class;
 
     protected static ?string $modelLabel = 'Produit';

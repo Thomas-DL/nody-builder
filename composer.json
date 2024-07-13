@@ -9,6 +9,7 @@
         "bezhansalleh/filament-google-analytics": "^2.0",
         "fakerphp/faker": "^1.23",
         "filament/filament": "^3.2.92",
+        "getbrevo/brevo-php": "^2.0",
         "laravel/cashier": "^15.3",
         "laravel/framework": "^11.9",
         "laravel/socialite": "^5.14",

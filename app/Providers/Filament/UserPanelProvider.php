@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\Widgets;
+use App\Facades\Settings;
 use Filament\PanelProvider;
 use Filament\Navigation\MenuItem;
 use Filament\Support\Colors\Color;
@@ -52,7 +53,8 @@ class UserPanelProvider extends PanelProvider
                 MenuItem::make()
                     ->label('Mon abonnement')
                     ->url(fn (): string => Subscription::getUrl())
-                    ->icon('heroicon-o-star'),
+                    ->icon('heroicon-o-star')
+                    ->visible(Settings::isFeatureEnabled('is_stripe_enabled')),
                 // ...
             ])
             ->discoverWidgets(in: app_path('Filament/User/Widgets'), for: 'App\\Filament\\User\\Widgets')
@@ -60,6 +62,8 @@ class UserPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
+            ->brandLogo(fn () => view('components.app-logo'))
+            ->favicon(asset('favicons/favicon.ico'))
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

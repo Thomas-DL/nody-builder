@@ -30,6 +30,8 @@ class PageBuilderResource extends Resource
 
     protected static $featureFlag = 'is_page_builder_enabled';
 
+    protected static ?string $navigationGroup = 'Tools';
+
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';

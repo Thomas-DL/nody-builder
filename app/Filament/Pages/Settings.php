@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Facades\Brevo;
 use App\Models\Setting;
 use Filament\Forms\Form;
 use Filament\Pages\Page;
@@ -16,6 +17,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 class Settings extends Page implements HasForms
 {
     use InteractsWithForms;
+
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 

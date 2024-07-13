@@ -657,6 +657,7 @@ return [
       'title' => 'Newsletter',
       'icon' => 'lucide-layout-template',
       'component' => 'sections.newsletter',
+      'livewire' => true,
       'fields' => [
         Tabs::make('Tabs')
           ->tabs([
@@ -672,11 +673,11 @@ return [
                 TextInput::make('subtitle')
                   ->label('Sous-titre')
               ]),
-            Tabs\Tab::make('button')
-              ->icon('lucide-command')
+            Tabs\Tab::make('Liste')
+              ->icon('lucide-list')
               ->schema([
-                TextInput::make('button_title')
-                  ->label('Texte')
+                TextInput::make('listID')
+                  ->label('ID de la liste')
                   ->required(),
               ]),
           ])

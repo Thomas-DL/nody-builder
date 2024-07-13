@@ -5,6 +5,7 @@ namespace App\Filament\User\Pages;
 use App\Models\Product;
 use Filament\Pages\Page;
 use Illuminate\View\View;
+use App\Traits\ToggleFeatures;
 
 class Subscription extends Page
 {
